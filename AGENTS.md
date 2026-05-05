@@ -132,6 +132,15 @@ Orchestrates discovery, enrichment, and growth engineering for a complete lead s
 
 ---
 
+### 5. Wallstreet Broker Agent
+**File:** `wallstreet-broker-agent.agent.md`
+
+Research, scrape, and analyze stock market data to provide high-probability buy/sell signals with detailed reasoning and predictions. Uses web scraping, quantitative analysis, and historical data techniques.
+
+**Example prompt:** "Analyze AAPL stock: scrape recent news, analyze technicals, compare to MSFT and GOOGL, provide buy/sell signal with 80%+ probability and reasoning."
+
+---
+
 ## Installation
 
 These agents are already saved in your workspace as `.agent.md` files. VS Code will auto-discover them based on context and file proximity.
