@@ -1,0 +1,61 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "search_inventory",
+      "description": "Searches the live store inventory for an auto part for a specific vehicle. Always use after gathering Year, Make, Model, Engine Size, and Transmission from the customer.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "vehicle": {
+            "type": "object",
+            "properties": {
+              "year": { "type": "string", "description": "The vehicle year (e.g. 2018)" },
+              "make": { "type": "string", "description": "The vehicle make (e.g. Chevrolet)" },
+              "model": { "type": "string", "description": "The vehicle model (e.g. Silverado)" },
+              "engine_size": { "type": "string", "description": "The engine size (e.g. 5.3L V8)" },
+              "transmission": { "type": "string", "description": "The transmission type (e.g. Automatic)" }
+            },
+            "required": ["year", "make", "model", "engine_size", "transmission"]
+          },
+          "part_name": {
+            "type": "string",
+            "description": "The specific part being searched for (e.g. starter, alternator, brake pads)"
+          }
+        },
+        "required": ["vehicle", "part_name"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "generate_payment_link",
+      "description": "Generates a secure payment link and sends it via SMS to the customer.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "part_name": { "type": "string", "description": "The name of the part being ordered" },
+          "price_dollars": { "type": "number", "description": "The price of the part in USD (e.g. 215.99)" },
+          "customer_phone": { "type": "string", "description": "The 10-digit phone number of the customer" }
+        },
+        "required": ["part_name", "price_dollars", "customer_phone"]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_web_comparison_link",
+      "description": "Generates a direct URL to the part on the retailer's website for the user to verify.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "sku": { "type": "string", "description": "The SKU or part number to look up" },
+          "store_id": { "type": "string", "description": "Optional store ID identifier" }
+        },
+        "required": ["sku"]
+      }
+    }
+  }
+]
